@@ -24,4 +24,5 @@ void draw() {
   x = 3;
   fill(255, 0, 0);
   rect((frameCount * a) + x, (frameCount * b) + y, 5, 5);
+  rect((-frameCount * a) + x, (-frameCount * b) +y, 5, 5);
 }
