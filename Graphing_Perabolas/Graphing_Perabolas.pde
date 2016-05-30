@@ -14,14 +14,17 @@ void setup() {
   size(512, 512);
   background(255);
   frameRate(3);
+  //for loop creating the graph along the x-axis using 8x8 squares
   for (int graphY = 0; graphY < 512; graphY += 8) {
     rect(x, graphY, 8, 8);
+    //creating the graph along the y-axis using 8x8 squares
     for (int graph = 0; graph < 512; graph += 8) {
       rect(graph, graphY, 8, 8);
     }
   }
 }
 void draw() {
+  //moving the parabola's starting point to the middle of teh screen
   translate(width/2, height/2);
   scale(1, -1);
   if (graphState == 0) {
@@ -37,9 +40,12 @@ void draw() {
     x = 0;
     x2 = 160;
     fill(255, 0, 0);
+    //positive side of the parabola
     rect((frameCount * a) + x + x2, (frameCount * b) + y + y2, 5, 5);
-    //println ("frameCount:" + frameCount);
+    println ("frameCount:" + frameCount);
+    //negative side of the parabola
     rect((-frameCount * a) + x + x2, (-frameCount * b) + y + y2, 5, 5);
+    //missing square in between the two sides of the parabola
     rect((frameCount - frameCount) + x + x2, (frameCount - frameCount) + y2, 5, 5);
   }
 }
